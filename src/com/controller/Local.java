@@ -19,6 +19,13 @@ public class Local {
         this.longitude = longitude;
     }
 
+    public void calcularDistancias(List<Local> locais){
+        for (Local local : locais) {
+            distancias.add(Calculos.calcularDistanciaEntreDoisPontos(this.latitude, this.longitude, local.latitude, local.longitude));
+        }
+        System.out.println(distancias);
+    }
+
     public String getNome() {
         return nome;
     }

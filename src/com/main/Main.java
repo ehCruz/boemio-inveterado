@@ -20,6 +20,9 @@ public class Main {
         for (String linha : dadosDoArquivo) {
             tratarDadosArquivo(linha);
         }
+        for (Local local : locais) {
+            local.calcularDistancias(locais);
+        }
     }
 
     private void tratarDadosArquivo(String linha) {
