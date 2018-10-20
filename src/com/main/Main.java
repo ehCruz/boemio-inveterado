@@ -1,7 +1,7 @@
 package com.main;
 
-import com.controller.LerArquivo;
-import com.controller.Local;
+import com.utils.LerArquivo;
+import com.model.Local;
 
 import java.util.ArrayList;
 import java.util.List;

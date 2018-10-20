@@ -1,9 +1,11 @@
-package com.controller;
+package com.utils;
+
+import java.text.DecimalFormat;
 
 public class Calculos {
 
     private static final int RAIO_TERRA = 6371;
-
+    private static final DecimalFormat dc = new DecimalFormat("#.###");
     /**
      * <h1>Fórmula de Haversine</h1>
      *
@@ -25,7 +27,8 @@ public class Calculos {
 
         Double a = haversin(deltaPhi) + Math.cos(startPhi) * Math.cos(endPhi) * haversin(deltaLambda);
         Double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-        return RAIO_TERRA * c;
+
+        return  Double.parseDouble(dc.format(RAIO_TERRA * c));
     }
 
     private static double haversin(Double val) {

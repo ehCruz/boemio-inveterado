@@ -1,14 +1,12 @@
-package com.controller;
-
-import java.util.ArrayList;
-import java.util.List;
+package com.model;
 
 public class Local {
 
     private String nome;
     private Double latitude;
     private Double longitude;
-    private List<Double> distancias = new ArrayList<>();
+    private Local proximo;
+    private Local anterior;
 
     public Local(String nome, Double latitude, Double longitude) {
         this.nome = nome;
@@ -16,12 +14,6 @@ public class Local {
         this.longitude = longitude;
     }
 
-    public void calcularDistancias(List<Local> locais){
-        for (Local local : locais) {
-            distancias.add(Calculos.calcularDistanciaEntreDoisPontos(this.latitude, this.longitude, local.latitude, local.longitude));
-        }
-        System.out.println(distancias);
-    }
 
     public String getNome() {
         return nome;
@@ -47,11 +39,19 @@ public class Local {
         this.longitude = longitude;
     }
 
-    public List<Double> getDistancias() {
-        return distancias;
+    public Local getProximo() {
+        return proximo;
     }
 
-    public void setDistancias(List<Double> distancias) {
-        this.distancias = distancias;
+    public void setProximo(Local proximo) {
+        this.proximo = proximo;
+    }
+
+    public Local getAnterior() {
+        return anterior;
+    }
+
+    public void setAnterior(Local anterior) {
+        this.anterior = anterior;
     }
 }
