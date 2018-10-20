@@ -10,9 +10,6 @@ public class Local {
     private Double longitude;
     private List<Double> distancias = new ArrayList<>();
 
-    public Local() {
-    }
-
     public Local(String nome, Double latitude, Double longitude) {
         this.nome = nome;
         this.latitude = latitude;
