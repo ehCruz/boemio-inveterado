@@ -28,7 +28,7 @@ public class Calculos {
         Double a = haversin(deltaPhi) + Math.cos(startPhi) * Math.cos(endPhi) * haversin(deltaLambda);
         Double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
-        return  Double.parseDouble(dc.format(RAIO_TERRA * c));
+        return  Double.parseDouble(dc.format(RAIO_TERRA * c).replaceAll(",", "."));
     }
 
     private static double haversin(Double val) {

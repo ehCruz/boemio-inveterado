@@ -5,8 +5,6 @@ public class Local {
     private String nome;
     private Double latitude;
     private Double longitude;
-    private Local proximo;
-    private Local anterior;
 
     public Local(String nome, Double latitude, Double longitude) {
         this.nome = nome;
@@ -14,19 +12,24 @@ public class Local {
         this.longitude = longitude;
     }
 
-    public Local getProximo() {
-        return proximo;
+    @Override
+    public String toString() {
+        return "Local{" +
+                "nome='" + nome + '\'' +
+                ", latitude=" + latitude +
+                ", longitude=" + longitude +
+                '}';
     }
 
-    public void setProximo(Local proximo) {
-        this.proximo = proximo;
+    public String getNome() {
+        return nome;
     }
 
-    public Local getAnterior() {
-        return anterior;
+    public Double getLatitude() {
+        return latitude;
     }
 
-    public void setAnterior(Local anterior) {
-        this.anterior = anterior;
+    public Double getLongitude() {
+        return longitude;
     }
 }

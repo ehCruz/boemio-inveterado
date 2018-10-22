@@ -1,6 +1,7 @@
 package com.main;
 
-import com.model.ListaLocal;
+import com.utils.Calculos;
+import com.utils.FloydWarshall;
 import com.utils.LerArquivo;
 import com.model.Local;
 
@@ -17,14 +18,15 @@ public class Main {
     public static void main(String[] args) {
         new Main().processar();
     }
-
+//    Casa;-25,346083;-49,247201
     private void processar() {
         System.out.println("Informe a latitude do ponto de partida: ");
         Double latitudeInicial = sc.nextDouble();
         System.out.println("Informe a longitude do ponto de partida: ");
         Double longitudeInicial = sc.nextDouble();
         Local local = new Local("Ponto de partida", latitudeInicial, longitudeInicial);
-        ListaLocal.adicionarElemento(local);
+        locais.add(local);
+        this.lerArquivoLocais();
     }
 
     private void lerArquivoLocais() {
@@ -45,6 +47,13 @@ public class Main {
     }
 
     private void calcularDistancia() {
-
+        Double[][] distancias = new Double[locais.size()][locais.size()];
+        for (int i = 0; i < locais.size(); i++) {
+            for (int j = 0; j < locais.size(); j++) {
+                distancias[i][j] = Calculos.calcularDistanciaEntreDoisPontos(locais.get(i).getLatitude(), locais.get(i).getLongitude(),
+                        locais.get(j).getLatitude(), locais.get(j).getLongitude());
+            }
+        }
+        FloydWarshall.exibirRotas(distancias);
     }
 }
